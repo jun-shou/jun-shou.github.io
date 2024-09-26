@@ -329,4 +329,165 @@
 <p><img src="/img/1727357695280-32.png" alt="img"></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>md5</title>
+    <url>/2024/09/26/md5/</url>
+    <content><![CDATA[<h1 id="SWPUCTF-2022-新生赛-webdog1-start，MD5绕过"><a href="#SWPUCTF-2022-新生赛-webdog1-start，MD5绕过" class="headerlink" title="[SWPUCTF 2022 新生赛]webdog1__start，MD5绕过"></a>[SWPUCTF 2022 新生赛]webdog1__start，MD5绕过</h1><p>链接：</p>
+<p>[MD5绕过-CSDN博客](<a href="https://blog.csdn.net/LYJ20010728/article/details/116779357?ops_request_misc=%7B%22request_id%22:%22171505714516800222875286%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=171505714516800222875286&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-116779357-null-null.142%5Ev100%5Econtrol&utm_term=MD5">https://blog.csdn.net/LYJ20010728/article/details/116779357?ops_request_misc=%7B%22request%5Fid%22%3A%22171505714516800222875286%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=171505714516800222875286&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-116779357-null-null.142^v100^control&amp;utm_term=MD5</a> 绕过&amp;spm&#x3D;1018.2226.3001.4187)</p>
+<p><a href="https://blog.csdn.net/qq_44879989/article/details/131429635">blog.csdn.net</a></p>
+<p>用到：MD5加密，rce，strstr() 函数，burp，str_ireplace()，error_reporting(),highlight_file()</p>
+<h2 id="前置知识，md5"><a href="#前置知识，md5" class="headerlink" title="前置知识，md5:"></a>前置知识，md5:</h2><p>（取自<a href="https://blog.csdn.net/qq_44879989/article/details/131429635">blog.csdn.net</a>）</p>
+<h3 id="认识："><a href="#认识：" class="headerlink" title="认识："></a>认识：</h3><p>MD5（Message Digest Algorithm 5） 是一种常用的哈希函数算法，用于将 任意长度 的数据转换为 固定长度 的哈希值。MD5 是 MD4 算法的改进版本，由 Ronald Rivest 在 1992 年设计并广泛使用。</p>
+<p>MD5 算法的 输出结果 是一个 128 位，即长度为 16 字节的哈希值，通常表示为一个 32 位 的 十六进制数。</p>
+<p>韧性</p>
+<p>不可逆性</p>
+<p>MD5 是一种 单向哈希函数，具有不可逆性的特性。这意味着 无法 通过 已知的 MD5 哈希值 来准确地 确定原始输入数据。</p>
+<p>雪崩效应</p>
+<p>MD5 的雪崩效应是指 对输入数据微小改变 会导致 输出哈希值发生巨大变化 的特性。具体来说，即使输入数据只有一个比特位的改变，其计算得到的 MD5 哈希值也会产生 全局性的变化，而不仅仅在修改的位置上体现出差异。</p>
+<p>唯一性</p>
+<p>理想情况下，对于不同的输入数据，MD5 算法生成的 哈希值应该是唯一的。也就是说，不同的输入数据应该产生不同的哈希值。</p>
+<p>快速性</p>
+<p>MD5 是一种快速计算哈希值的算法，适用于 对大量数据进行哈希计算 的场景。</p>
+<p>脆弱性</p>
+<p>MD5 算法的 哈希输出空间 相对较小，仅有 128 位（仅能容纳 128 位二进制数据），而 输入空间是无限的，这种 输入与输出的不匹配性 导致了哈希碰撞的 可能性。攻击者可以使用 巧妙构造的输入数据，通过精心选择的 碰撞攻击算法，找到 <strong>具有相同<strong><strong>哈希值</strong></strong>的不同输入</strong>。</p>
+<p>碰撞攻击</p>
+<p>由于 MD5 的 设计特点 和 算法结构，使得攻击者能够使用巧妙构造的输入数据来找到碰撞。碰撞攻击的发现使得 MD5 不再适用于对数据完整性和身份验证进行可靠保护。</p>
+<p>预计算攻击</p>
+<p>由于 MD5 的 计算速度较快，攻击者可以 预先计算常见输入数据的 MD5 哈希值并将其存储在哈希表中。这样，在实际攻击过程中，攻击者可以通过将需要进行破解的哈希值与预先计算的哈希值进行 比对 来实现对哈希值的快速破解。</p>
+<h3 id="弱比较绕过："><a href="#弱比较绕过：" class="headerlink" title="弱比较绕过："></a>弱比较绕过：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">弱类型相等运算符` 在对操作数进行比较之前，将 `自动` 进行类型转换以 `使两者所属的数据类型相同`。而 `强类型相等运算符` 在进行比较时，要求两个值的 `类型` 和 `值` 都必须 `完全相同`，`不进行类型转换</span><br></pre></td></tr></table></figure>
+
+<p>在 PHP 中，<code>md5()</code> 函数用于计算给定字符串的 <code>MD5 哈希值</code>，该函数采用一个字符串作为输入并返回其 <code>对应的哈希值</code>。</p>
+<p>md5(string $string, bool $binary &#x3D; false): string</p>
+<table>
+<thead>
+<tr>
+<th>$string</th>
+<th>要计算 MD5 哈希值的字符串。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$binary</td>
+<td>参数值为一个 布尔类型 的数据，用于指定返回的哈希值是 二进制格式 还是 十六进制格式。默认为 false，表示返回 十六进制格式 的哈希值，如果设置为 true，则返回 二进制格式 的哈希值。</td>
+</tr>
+</tbody></table>
+<p><img src="/img/1727360141985-134.png" alt="img"></p>
+<p>注：</p>
+<p>md5 函数的 $binary 参数的值设置为 true，此时若将转换结果输出至终端中将出现 乱码 的现象。这是因为 PHP 会 自动尝试 将 二进制数据 转换为 可以显示的文本信息。PHP 会将二进制数据中的 每一个字节 转化为对应的 ASCII 字符，而转化结果中包含了 部分不可打印字符（回车符、空字符等），这些不可见字符将以 乱码 的形式展现。其中，回车符 虽然为 不可见字符，但在文本中起着将文本内容换行的作用</p>
+<h4 id="0e绕过："><a href="#0e绕过：" class="headerlink" title="0e绕过："></a>0e绕过：</h4><p>0e开头的字符串在参与比较时,会被当做科学计数法,结果转换为0</p>
+<p>常用的MD5加密后以0E开头的有</p>
+<p>​    QNKCDZO</p>
+<p>​    240610708</p>
+<p>​    byGcY</p>
+<p>​    sonZ7y</p>
+<p>​    aabg7XSs</p>
+<p>​    aabC9RqS</p>
+<p>​    s878926199a</p>
+<p>​    s155964671a</p>
+<p>​    s214587387a</p>
+<p>​    s1091221200a</p>
+<p>MD5和双MD5以后的值都是0e开头的</p>
+<p>CbDLytmyGm2xQyaLNhWn</p>
+<p>770hQgrBOjrcqftrlaZk</p>
+<p>  7r4lGXCH2Ksu2JNT3BYM</p>
+<p>MD5加密与原值都是0e开头</p>
+<p>0e215962017</p>
+<h3 id="强比较绕过（也可以弱比较）："><a href="#强比较绕过（也可以弱比较）：" class="headerlink" title="强比较绕过（也可以弱比较）："></a>强比较绕过（也可以弱比较）：</h3><h4 id="数组绕过"><a href="#数组绕过" class="headerlink" title="数组绕过"></a>数组绕过</h4><p>md5不能加密数组,传入数组会报错,但会继续执行并且返回结果为null</p>
+<p>例：</p>
+<p>md5(a[]&#x3D;1) &#x3D;&#x3D;&#x3D; md5(b[]&#x3D;1)</p>
+<h4 id="MD5碰撞："><a href="#MD5碰撞：" class="headerlink" title="MD5碰撞："></a>MD5碰撞：</h4><p>MD5碰撞也叫哈希碰撞,是指两个不同内容的输入,经过散列算法后,得到相同的输出,也就是两个不同的值的散列值相同</p>
+<p>二进制md5加密 ecd33e3e09ff2a58e1d9ed7189dc186b</p>
+<p>url编码 abc%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%D6%16y%AC%CE%C5%A1LrY5fn%94%10%D9%01%C3%AC%F8%AAN%21%D0%27%BE%3Ej%A7%22%0C%D08%D3%AF%DFRo%2F%A4%8B%E8%EB45j%E4h%9C%21%22%AB%7E%BC%8E%7C%17%9E%C3Xg%D7%A8%CDHt%BE%AB.%2FWb%3Eb%EA%FC%261%0F_%3D%AFo%3F%1E%DE%E8i%86%7D%BF%C7_Q%CDA%B4%CF%B8n%06Ir%7F%5C%A3k%F9%2AO%DFF%2A%F3%8BcH%FF%85%3F%0D%D0%9B%C7%C8-%12%92</p>
+<p>二进制md5加密 ecd33e3e09ff2a58e1d9ed7189dc186b</p>
+<p>url编码 abc%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%D6%16y%AC%CE%C5%A1LrY5fn%94%10%D9%01%C3%ACx%AAN%21%D0%27%BE%3Ej%A7%22%0C%D08%D3%AF%DFRo%2F%A4%8B%E8%EB45%EA%E4h%9C%21%22%AB%7E%BC%8E%7C%17%9E%C3%D8g%D7%A8%CDHt%BE%AB.%2FWb%3Eb%EA%FC%261%0F_%3D%AFo%BF%1E%DE%E8i%86%7D%BF%C7_Q%CDA%B4%CF%B8n%06Ir%7F%5C%A3k%F9%2A%CF%DEF%2A%F3%8BcH%FF%85%3F%0D%D0%9BG%C8-%12%92</p>
+<h4 id="MD5-SQL注入："><a href="#MD5-SQL注入：" class="headerlink" title="MD5-SQL注入："></a>MD5-SQL注入：</h4><p>这个点的原理是 ffifdyop 这个字符串被 md5 哈希了之后会变成 276f722736c95d99e921722cf9ed621c，这个字符串前几位刚好是 ‘ or ‘6，而 Mysql 刚好又会吧 hex 转成 ascii 解释，因此拼接之后的形式是select * from ‘admin’ where password&#x3D;’’ or ‘6xxxxx’。等价于 or 一个永真式，因此相当于万能密码，可以绕过md5()函数</p>
+<h2 id="strstr-函数："><a href="#strstr-函数：" class="headerlink" title="strstr() 函数："></a>strstr() 函数：</h2><p><code>strstr()</code> 函数是 PHP 中用于在字符串中查找 <code>子字符串</code> 的函数，该函数返回在字符串中 <code>第一次出现的子字符串</code> 及 <code>其后面的所有内容</code>。</p>
+<p>strstr(string $haystack, string $needle, bool $before_needle &#x3D; false): string|false</p>
+<p>$haystack:字符串。</p>
+<p>$needle:被搜索的子字符串。</p>
+<p>$before_neddle:指定 是否 返回 子字符串之前 的内容，默认为 false。如果将该参数的值设置为 true，则返回 子字符串之前 的内容。如果该参数的值设置为 false，则返回 子字符串及其之后的所有内容。</p>
+<p><img src="/img/1727360141979-118.png" alt="img"></p>
+<h2 id="str-ireplace"><a href="#str-ireplace" class="headerlink" title="str_ireplace()"></a>str_ireplace()</h2><p>在 PHP 中，str_ireplace() 函数用于执行 不区分大小写（具有相同功能且区分大小写的 PHP 函数为 str_replace() ） 的 替换操作。该 PHP 函数将在 字符串 或 数组 中搜索指定的子字符串或子元素，并将其替换为另一个字符串或元素。取决于需要进行替换操作的数据的类型，该函数将返回一个字符串或数组。</p>
+<p>str_ireplace(</p>
+<p>​    array|string $search,    array|string $replace,</p>
+<p>​    string|array $subject,    int &amp;$count &#x3D; null</p>
+<p>): string|array</p>
+<table>
+<thead>
+<tr>
+<th>$search</th>
+<th>需要搜索和替换的字符串或数组。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$replace</td>
+<td>用于替换匹配项的字符串或数组。</td>
+</tr>
+<tr>
+<td>$subject</td>
+<td>要在其中执行搜索和替换操作的字符串数组。</td>
+</tr>
+<tr>
+<td>&amp;$count（可选）</td>
+<td>请为该参数指定一个 变量，该变量的值将被设置为 替换发生的次数。</td>
+</tr>
+</tbody></table>
+<p><img src="/img/1727360141979-119.png" alt="img"></p>
+<h1 id="忘了"><a href="#忘了" class="headerlink" title="忘了"></a>忘了</h1><p><img src="/img/1727360141979-120.png" alt="img"></p>
+<p>页面源代码：</p>
+<p><img src="/img/1727360141979-121.png" alt="img"></p>
+<p>md5加密比较使web&#x3D;”xxx”,其中xxx&#x3D;&#x3D;md5(xxx)  弱比较</p>
+<p>xxx&#x3D;0e215962017</p>
+<h2 id="进入：start-php"><a href="#进入：start-php" class="headerlink" title="进入：start.php"></a>进入：start.php</h2><p><img src="/img/1727360141979-122.png" alt="img"></p>
+<p>由于：本界面，和源码都没有提示或漏洞—&gt;抓包或按F12在网络中找头部等信息</p>
+<p>发现：</p>
+<p><img src="/img/1727360141979-123.png" alt="img"></p>
+<h2 id="进入f14g-php"><a href="#进入f14g-php" class="headerlink" title="进入f14g.php"></a>进入f14g.php</h2><p>同样</p>
+<p><img src="/img/1727360141979-124.png" alt="img"></p>
+<p>进入：F1l1l1l1l1lag.php</p>
+<p><img src="/img/1727360141979-125.png" alt="img"></p>
+<p>rce漏洞：空格绕过，长度限制</p>
+<p><img src="/img/1727360141980-126.png" alt="img"></p>
+<h2 id="无法进入flag-php，只能用cat-flag-php"><a href="#无法进入flag-php，只能用cat-flag-php" class="headerlink" title="无法进入flag.php，只能用cat flag.php"></a>无法进入flag.php，只能用cat flag.php</h2><p><img src="/img/1727360141980-127.png" alt="img"></p>
+<p><strong>方法：</strong></p>
+<p><img src="/img/1727360141980-128.png" alt="img"></p>
+<p>有</p>
+<p><img src="/img/1727360141980-129.png" alt="img"></p>
+<p><img src="/img/1727360141980-130.png" alt="img"></p>
+<p>发现在  F1l1l1l1l1lag.php&#x2F;flag</p>
+<p>?get&#x3D;eval($_GET[‘x’]);&amp;x&#x3D;system(‘cat &#x2F;f*’);  进入</p>
+<p><img src="/img/1727360141980-131.png" alt="img"></p>
+<h1 id="Week2-所以你说你懂-MD5-MD5-长度拓展攻击"><a href="#Week2-所以你说你懂-MD5-MD5-长度拓展攻击" class="headerlink" title="[Week2] 所以你说你懂 MD5? MD5 长度拓展攻击"></a>[Week2] 所以你说你懂 MD5? <code>MD5 长度拓展攻击</code></h1><p><a href="https://luoingly.top/post/md5-length-extension-attack/">浅析 MD5 长度扩展攻击 (MD5 Length Extension Attack) | Luoingly’s Space</a></p>
+<p><a href="https://wiki.wgpsec.org/knowledge/ctf/Hash-Leng-Extension.html">【CRYPTO】哈希长度拓展攻击 | 狼组安全团队公开知识库</a></p>
+<p><a href="https://www.cnblogs.com/p0pl4r/p/10317593.html#:~:text=%E5%9C%A8%E7%90%86%E8%A7%A3Has">www.cnblogs.com</a></p>
+<p><a href="https://j0zr0js7k7j.feishu.cn/wiki/JQbiwKdvtiR49VkMj5RcmPvPn7c">BaseCTF 2024 官方 Writeup - Week2</a></p>
+<p>利用脚本我所在位置D:\wode123\py\pythonProject2*<em>hash-ext-attack-master</em>*</p>
+<p><img src="/img/1727360141980-132.png" alt="img"></p>
+<p>在命令框输入1.</p>
+<p>D:\wode123\py\pythonProject2\hash-ext-attack-master&gt;python hash_ext_attack.py</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>D:\wode123\py\pythonProject2\hash-ext-attack-master&gt;pip install loguru</p>
+<p>安装前置文件（安完可不再进行）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">session_start(); </span><br><span class="line">highlight_file(__FILE__); </span><br><span class="line">// 所以你说你懂 MD5 了? </span><br><span class="line"></span><br><span class="line"><span class="variable">$apple</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;apple&#x27;</span>]; </span><br><span class="line"><span class="variable">$banana</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;banana&#x27;</span>]; </span><br><span class="line"><span class="keyword">if</span> (!(<span class="variable">$apple</span> !== <span class="variable">$banana</span> &amp;&amp; md5(<span class="variable">$apple</span>) === md5(<span class="variable">$banana</span>))) &#123; </span><br><span class="line">    die(<span class="string">&#x27;加强难度就不会了?&#x27;</span>); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">// 什么? 你绕过去了? </span><br><span class="line">// 加大剂量! </span><br><span class="line">// 我要让他成为 string </span><br><span class="line"><span class="variable">$apple</span> = (string)<span class="variable">$_POST</span>[<span class="string">&#x27;appple&#x27;</span>]; </span><br><span class="line"><span class="variable">$banana</span> = (string)<span class="variable">$_POST</span>[<span class="string">&#x27;bananana&#x27;</span>]; </span><br><span class="line"><span class="keyword">if</span> (!((string)<span class="variable">$apple</span> !== (string)<span class="variable">$banana</span> &amp;&amp; md5((string)<span class="variable">$apple</span>) == md5((string)<span class="variable">$banana</span>))) &#123; </span><br><span class="line">    die(<span class="string">&#x27;难吗?不难!&#x27;</span>); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">// 你还是绕过去了? </span><br><span class="line">// 哦哦哦, 我少了一个等于号 </span><br><span class="line"><span class="variable">$apple</span> = (string)<span class="variable">$_POST</span>[<span class="string">&#x27;apppple&#x27;</span>]; </span><br><span class="line"><span class="variable">$banana</span> = (string)<span class="variable">$_POST</span>[<span class="string">&#x27;banananana&#x27;</span>]; </span><br><span class="line"><span class="keyword">if</span> (!((string)<span class="variable">$apple</span> !== (string)<span class="variable">$banana</span> &amp;&amp; md5((string)<span class="variable">$apple</span>) === md5((string)<span class="variable">$banana</span>))) &#123; </span><br><span class="line">    die(<span class="string">&#x27;嘻嘻, 不会了? 没看直播回放?&#x27;</span>); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">// 你以为这就结束了 </span><br><span class="line"><span class="keyword">if</span> (!isset(<span class="variable">$_SESSION</span>[<span class="string">&#x27;random&#x27;</span>])) &#123; </span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;random&#x27;</span>] = bin2hex(random_bytes(16)) . bin2hex(random_bytes(16)) . bin2hex(random_bytes(16)); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">// 你想看到 random 的值吗? </span><br><span class="line">// 你不是很懂 MD5 吗? 那我就告诉你他的 MD5 吧 </span><br><span class="line"><span class="variable">$random</span> = <span class="variable">$_SESSION</span>[<span class="string">&#x27;random&#x27;</span>]; </span><br><span class="line"><span class="built_in">echo</span> md5(<span class="variable">$random</span>); </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;&lt;br /&gt;&#x27;</span>; </span><br><span class="line"></span><br><span class="line"><span class="variable">$name</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;name&#x27;</span>] ?? <span class="string">&#x27;user&#x27;</span>; </span><br><span class="line"></span><br><span class="line">// check <span class="keyword">if</span> name ends with <span class="string">&#x27;admin&#x27;</span> </span><br><span class="line"><span class="keyword">if</span> (substr(<span class="variable">$name</span>, -5) !== <span class="string">&#x27;admin&#x27;</span>) &#123; </span><br><span class="line">    die(<span class="string">&#x27;不是管理员也来凑热闹?&#x27;</span>); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="variable">$md5</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;md5&#x27;</span>]; </span><br><span class="line"><span class="keyword">if</span> (md5(<span class="variable">$random</span> . <span class="variable">$name</span>) !== <span class="variable">$md5</span>) &#123; </span><br><span class="line">    die(<span class="string">&#x27;伪造? NO NO NO!&#x27;</span>); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">// 认输了, 看样子你真的很懂 MD5 </span><br><span class="line">// 那 flag 就给你吧 </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;看样子你真的很懂 MD5&quot;</span>; </span><br><span class="line"><span class="built_in">echo</span> file_get_contents(<span class="string">&#x27;/flag&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>if (!($apple !&#x3D;&#x3D; $banana &amp;&amp; md5($apple) &#x3D;&#x3D;&#x3D; md5($banana))) {     die(‘加强难度就不会了?’); </p>
+<p>MD5数组绕过</p>
+<p>if (!((string)$apple !&#x3D;&#x3D; (string)$banana &amp;&amp; md5((string)$apple) &#x3D;&#x3D; md5((string)$banana)))</p>
+<p>MD5的0e绕过</p>
+<p>(!((string)$apple !&#x3D;&#x3D; (string)$banana &amp;&amp; md5((string)$apple) &#x3D;&#x3D; md5((string)$banana)))</p>
+<p>MD5强碰撞</p>
+<p>$_SESSION[‘random’] &#x3D; bin2hex(random_bytes(16)) . bin2hex(random_bytes(16)) . bin2hex(random_bytes(16));得<strong>密钥长度为96</strong></p>
+<p>echo md5($random)得$random的<strong>hash</strong></p>
+<p>md5($random . $name) !&#x3D;&#x3D; $md5利用脚本<strong>hash-ext-attack-master</strong></p>
+<p><img src="/img/1727360141980-133.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>ctf</category>
+      </categories>
+      <tags>
+        <tag>ctf</tag>
+        <tag>md5</tag>
+      </tags>
+  </entry>
 </search>
